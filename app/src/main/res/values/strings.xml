@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WaterDrinker</string>
+    <color name="dark_blue">#00008B</color>
+    <color name="light_blue">#add8e6</color>
 </resources>
