@@ -13,11 +13,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     int startingValue = 0;
+    int lastValue=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
         waterDrank.setText("0");
-        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        String currentDateandTime = sdf.format(new Date());
         EditText date = (EditText)findViewById(R.id.Date);
-        date.setText(currentTime.toString());
+        date.setText(currentDateandTime.toString());
         EditText quote = (EditText)findViewById(R.id.Quote);
         quote.setText("Stay hydrated, stay happy");
     }
@@ -40,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         else{
             EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
             int waterSoFar = Integer.parseInt(waterDrank.getText().toString());
+            waterDrank.setText("0");
             waterSoFar += waterAdded;
+            lastValue = waterAdded;
             waterDrank.setText(Integer.toString(waterSoFar));
         }
     }
