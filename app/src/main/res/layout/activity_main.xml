@@ -9,28 +9,33 @@
 
     <EditText
         android:id="@+id/waterDrank"
-        android:layout_width="179dp"
-        android:layout_height="199dp"
+        android:layout_width="215dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@null"
         android:clickable="false"
         android:ems="10"
-        android:inputType="numberSigned"
-        android:textSize="120sp"
-        android:textColor="@color/dark_blue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:enabled="false"
-        android:background="@null"/>
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:textColor="@color/dark_blue"
+        android:textSize="100sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/Quote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="190dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:background="@null"
         android:ems="10"
         android:enabled="false"
+        android:gravity="center"
         android:inputType="date"
         android:textColor="@color/dark_blue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,14 +43,15 @@
 
     <EditText
         android:id="@+id/Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="189dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:background="@null"
         android:ems="10"
         android:enabled="false"
+        android:gravity="center"
         android:inputType="time"
         android:textColor="@color/dark_blue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,13 +70,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:enabled="false"
-        android:background="@null"/>
+        android:background="@null"
+        android:textSize="110sp"
+        android:gravity="right"/>
 
     <Button
         android:id="@+id/AddWater"
         android:layout_width="123dp"
         android:layout_height="68dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="84dp"
         android:background="@color/dark_blue"
         android:onClick="addWater"
         android:text="Add water"
@@ -80,11 +90,41 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/waterAdded"
-        android:layout_width="289dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="8dp"
         android:hint="Water Drank (oz)"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/UndoBtn"
+        android:layout_width="123dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
+        android:layout_marginBottom="84dp"
+        android:background="@color/dark_blue"
+        android:onClick="undo"
+        android:text="Undo"
+        android:textColor="@color/light_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/resetBtn"
+        android:layout_width="123dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginRight="284dp"
+        android:layout_marginBottom="84dp"
+        android:background="@color/dark_blue"
+        android:onClick="reset"
+        android:text="Reset"
+        android:textColor="@color/light_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
