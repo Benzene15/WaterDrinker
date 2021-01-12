@@ -8,9 +8,27 @@
     android:background="@color/light_blue">
 
     <EditText
+        android:id="@+id/oz"
+        android:layout_width="100dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginLeft="264dp"
+        android:layout_marginTop="4dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:enabled="false"
+        android:gravity="left"
+        android:text="oz"
+        android:textColor="@color/dark_blue"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/waterDrank"
-        android:layout_width="215dp"
-        android:layout_height="98dp"
+        android:layout_width="230dp"
+        android:layout_height="96dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="4dp"
@@ -27,32 +45,32 @@
 
     <EditText
         android:id="@+id/Quote"
-        android:layout_width="190dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="189dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="472dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:background="@null"
         android:ems="10"
         android:enabled="false"
         android:gravity="center"
-        android:inputType="date"
+        android:inputType="textMultiLine"
         android:textColor="@color/dark_blue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
         android:id="@+id/Date"
         android:layout_width="189dp"
         android:layout_height="30dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="416dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:background="@null"
         android:ems="10"
         android:enabled="false"
         android:gravity="center"
-        android:inputType="time"
         android:textColor="@color/dark_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,18 +79,16 @@
         android:id="@+id/percentComplete"
         android:layout_width="213dp"
         android:layout_height="221dp"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
-        android:textColor="@color/dark_blue"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:enabled="false"
+        android:layout_marginTop="164dp"
         android:background="@null"
+        android:ems="10"
+        android:enabled="false"
+        android:gravity="center"
+        android:inputType="textMultiLine"
+        android:textColor="@color/dark_blue"
         android:textSize="110sp"
-        android:gravity="right"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/AddWater"
@@ -127,4 +143,5 @@
         android:textColor="@color/light_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

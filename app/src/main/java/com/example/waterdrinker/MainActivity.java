@@ -33,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
         EditText date = (EditText)findViewById(R.id.Date);
         date.setText(currentDateandTime.toString());
         EditText quote = (EditText)findViewById(R.id.Quote);
-        quote.setText("Stay hydrated, stay happy");
+        quote.setText("Stay hydrated, \r\n stay happy");
         updatePercentage();
     }
     public void addWater(View view){
         TextInputEditText waterInput = (TextInputEditText) findViewById(R.id.waterAdded);
         int waterAdded = Integer.parseInt(waterInput.getText().toString());
-        if(waterAdded<0){
-            Toast.makeText(getApplicationContext(), "Can't Drink negative water", Toast.LENGTH_SHORT).show();
+        if(waterAdded<=0){
+            Toast.makeText(getApplicationContext(), "Have some water!", Toast.LENGTH_SHORT).show();
         }
         else{
             EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             waterPercentage.setText("Yay!");
         }
         else{
-            waterPercentage.setText(Integer.toString(percent));
+            waterPercentage.setText(Integer.toString(percent)+"%");
         }
     }
 }
