@@ -31,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Looks like you may only be able to enter strings. How stupid lol
+    //Sike I'm just dumb as hell!
     public boolean insertData(int id, int waterDrank, int streak, int weight, String date ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -44,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public Cursor getData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM "+ DATABASE_NAME + " WHERE "+ ID + "=1;",null);
+        Cursor res = db.rawQuery("SELECT * FROM "+ TABLE_NAME + " WHERE "+ ID + "=1;",null);
         return res;
     }
 
