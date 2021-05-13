@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     int lastValue=0;
     int WEIGHT=200;
     DatabaseHelper waterDB;
+    private Cursor stats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Welcome back!", Toast.LENGTH_SHORT).show();
         }
         //waterDB.setValues(1,0,0,200,"10/12/2021");
-        Cursor stats = waterDB.getData();
+        stats = waterDB.getData();
         stats.moveToFirst();
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         String currentDateandTime = sdf.format(new Date());
@@ -107,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
         EditText waterPercentage = (EditText)findViewById((R.id.percentComplete));
         EditText waterDrank  =(EditText)findViewById(R.id.waterDrank);
         int waterSoFar = Integer.parseInt(waterDrank.getText().toString());
+        //Update the database for how much water has been drank
+        waterDB.setValues(stats.getInt(0),waterSoFar,stats.getInt(2), stats.getInt(3), stats.getString(4));
         int percent = (int)Math.min(100,(waterSoFar/(WEIGHT/2.0))*100);
         if(percent==100){
             waterPercentage.setText("Yay!");
