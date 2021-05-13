@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     public void undo(View view){
         EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
         int waterSoFar = Integer.parseInt(waterDrank.getText().toString());
-        waterSoFar-=lastValue;
-        lastValue=0;
+        waterSoFar -= lastValue;
+        lastValue = -lastValue;
         waterDrank.setText(Integer.toString(waterSoFar));
         updatePercentage();
     }
