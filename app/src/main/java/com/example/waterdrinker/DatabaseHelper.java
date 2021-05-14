@@ -57,7 +57,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(Streak,streak);
         contentValues.put(Weight,weight);
         contentValues.put(Date,date);
-        System.out.println("HERE");
         db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
         //db.rawQuery(("UPDATE "+TABLE_NAME+" SET WaterDrank = "+ waterDrank +", Streak = "+streak+",Date = "+date+", Weight = "+weight),null);
         //System.out.println("UPDATE "+TABLE_NAME+" SET WaterDrank ="+ waterDrank +",Streak="+streak+",Date="+date+",Weight ="+weight +" WHERE ID = 1;");

@@ -2,7 +2,9 @@ package com.example.waterdrinker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class StatsActivity extends AppCompatActivity {
 
@@ -10,5 +12,10 @@ public class StatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
+    }
+
+    public void switchToMain(View v){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 }
