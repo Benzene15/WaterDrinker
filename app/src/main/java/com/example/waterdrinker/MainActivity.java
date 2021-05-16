@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //waterDB.setValues(1,0,0,200,"10/12/2021");
         stats = waterDB.getData();
         stats.moveToFirst();
-        System.out.println(stats);
+        System.out.println(stats.getInt(3));
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         String currentDateandTime = sdf.format(new Date());
         if(!currentDateandTime.equals(stats.getString(4))) {
