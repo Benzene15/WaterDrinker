@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         String currentDateandTime = sdf.format(new Date());
         if(!currentDateandTime.equals(stats.getString(4))) {
+            EditText waterPercentage = (EditText)findViewById((R.id.percentComplete));
+            waterPercentage.setText("0%");
             String[] oldDateArrayString = stats.getString(4).split("/");
             String[] newDateArrayString = currentDateandTime.split("/");
             int[] oldDataArray = new int[]{Integer.parseInt(oldDateArrayString[0]), Integer.parseInt(oldDateArrayString[1]), Integer.parseInt(oldDateArrayString[2])};
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         int waterSoFar = Integer.parseInt(waterDrank.getText().toString());
         //Update the database for how much water has been drank
         waterDB.setValues(stats.getInt(0),waterSoFar,stats.getInt(2), stats.getInt(3), stats.getString(4));
-
+        
         int percent = (int)Math.min(100,(waterSoFar/(stats.getInt(3)/2.0))*100);
         if(percent==100){
             waterPercentage.setText("Yay!");

@@ -32,7 +32,7 @@ public class StatsActivity extends AppCompatActivity {
             return;
         }
         int weight = Integer.parseInt(value);
-        System.out.println(weight);
+        //System.out.println(weight);
         if(weight<=0){
             Toast.makeText(getApplicationContext(), "Please enter a positive weight", Toast.LENGTH_SHORT).show();
             cleanSave = false;
