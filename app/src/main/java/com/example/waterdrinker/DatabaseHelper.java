@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public void setValues(int id, int waterDrank, int streak, int weight, String date){
+    public boolean setValues(int id, int waterDrank, int streak, int weight, String date){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(ID,id);
@@ -57,7 +57,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(Streak,streak);
         contentValues.put(Weight,weight);
         contentValues.put(Date,date);
-        db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
+        int update = db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
+        //System.out.println(date);
+        return 0!=update;
         //db.rawQuery(("UPDATE "+TABLE_NAME+" SET WaterDrank = "+ waterDrank +", Streak = "+streak+",Date = "+date+", Weight = "+weight),null);
         //System.out.println("UPDATE "+TABLE_NAME+" SET WaterDrank ="+ waterDrank +",Streak="+streak+",Date="+date+",Weight ="+weight +" WHERE ID = 1;");
     }

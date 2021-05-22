@@ -41,21 +41,43 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(stats.getInt(3));
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         String currentDateandTime = sdf.format(new Date());
+        System.out.println(currentDateandTime);
+        System.out.println(stats.getString(4));
         if(!currentDateandTime.equals(stats.getString(4))) {
             EditText waterPercentage = (EditText)findViewById((R.id.percentComplete));
-            waterPercentage.setText("0%");
             String[] oldDateArrayString = stats.getString(4).split("/");
             String[] newDateArrayString = currentDateandTime.split("/");
             int[] oldDataArray = new int[]{Integer.parseInt(oldDateArrayString[0]), Integer.parseInt(oldDateArrayString[1]), Integer.parseInt(oldDateArrayString[2])};
             int[] newDataArray = new int[]{Integer.parseInt(newDateArrayString[0]), Integer.parseInt(newDateArrayString[1]), Integer.parseInt(newDateArrayString[2])};
-            if (oldDataArray[1] == newDataArray[1] + 1) {
-                waterDB.setValues(stats.getInt(0),stats.getInt(1),stats.getInt(2)+1, stats.getInt(3), currentDateandTime);
-            } else if (addToStreak(newDataArray, oldDataArray)) {
-                waterDB.setValues(stats.getInt(0),stats.getInt(1),stats.getInt(2)+1, stats.getInt(3), currentDateandTime);
+            System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZzzzz");
+            //Need to add if enough water was drank
+            //Also set to zero for new day
+            System.out.println(waterPercentage.getText().toString());
+            int percent = (int)Math.min(100,(stats.getInt(1)/(stats.getInt(3)/2.0))*100);
+            if (oldDataArray[1] + 1 == newDataArray[1] && percent==100) {
+                System.out.println(1);
+                waterDB.setValues(stats.getInt(0),0,stats.getInt(2)+1, stats.getInt(3), currentDateandTime);
+            } else if (addToStreak(newDataArray, oldDataArray) && percent==100) {
+                System.out.println(2);
+                waterDB.setValues(stats.getInt(0),0,stats.getInt(2)+1, stats.getInt(3), currentDateandTime);
             } else {
-                waterDB.setValues(stats.getInt(0),stats.getInt(1),0, stats.getInt(3), currentDateandTime);
+                //System.out.println(currentDateandTime);
+                //System.out.println(stats.getInt(0));
+                //System.out.println(stats.getInt(1));
+                //System.out.println(stats.getInt(2));
+                //System.out.println(stats.getInt(3));
+                //System.out.println(stats.getString(4));
+
+                System.out.println(waterDB.setValues(stats.getInt(0),0,0, stats.getInt(3), currentDateandTime));
             }
+            waterPercentage.setText("0%");
+            EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
+            waterDrank.setText("0");
         }
+
+        stats = waterDB.getData();
+        stats.moveToFirst();
+
         EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
         waterDrank.setText(stats.getString(1));
 
