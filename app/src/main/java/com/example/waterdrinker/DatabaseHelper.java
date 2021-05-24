@@ -58,9 +58,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(Weight,weight);
         contentValues.put(Date,date);
         int update = db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
-        //System.out.println(date);
+
         return 0!=update;
-        //db.rawQuery(("UPDATE "+TABLE_NAME+" SET WaterDrank = "+ waterDrank +", Streak = "+streak+",Date = "+date+", Weight = "+weight),null);
-        //System.out.println("UPDATE "+TABLE_NAME+" SET WaterDrank ="+ waterDrank +",Streak="+streak+",Date="+date+",Weight ="+weight +" WHERE ID = 1;");
+    }
+    public boolean setWaterDrank(int id, int waterDrank){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(WaterDrank,waterDrank);
+        int update = db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
+
+        return 0!=update;
+    }
+    public boolean setStreak(int id, int streak){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Streak,streak);
+        int update = db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
+
+        return 0!=update;
+    }
+    public boolean setWeight(int id, int weight){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Weight,weight);
+        int update = db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
+
+        return 0!=update;
+    }
+    public boolean setDate(int id, String date){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Date,date);
+        int update = db.update(TABLE_NAME,contentValues,"ID = ?",new String[] { Integer.toString(id) });
+
+        return 0!=update;
     }
 }
