@@ -32,7 +32,7 @@ public class StatsActivity extends AppCompatActivity {
             return;
         }
         int weight = Integer.parseInt(value);
-        //System.out.println(weight);
+        
         if(weight<=0){
             Toast.makeText(getApplicationContext(), "Please enter a positive weight", Toast.LENGTH_SHORT).show();
             cleanSave = false;
@@ -41,7 +41,7 @@ public class StatsActivity extends AppCompatActivity {
         else{
             stats = waterDB.getData();
             stats.moveToFirst();
-            waterDB.setValues(stats.getInt(0),stats.getInt(1),stats.getInt(2), weight, stats.getString(4));
+            waterDB.setWeight(stats.getInt(0), weight);
             Toast.makeText(getApplicationContext(), "Data updated", Toast.LENGTH_SHORT).show();
             cleanSave = true;
         }

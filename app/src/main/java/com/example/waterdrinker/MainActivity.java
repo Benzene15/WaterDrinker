@@ -54,12 +54,20 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(waterPercentage.getText().toString());
             int percent = (int)Math.min(100,(stats.getInt(1)/(stats.getInt(3)/2.0))*100);
             if (oldDataArray[1] + 1 == newDataArray[1] && percent==100) {
-                waterDB.setValues(stats.getInt(0),0,stats.getInt(2)+1, stats.getInt(3), currentDateandTime);
+                //Next day so easy case
+                waterDB.setStreak(stats.getInt(0),stats.getInt(2)+1);
+                waterDB.setDate(stats.getInt(0),currentDateandTime);
+                waterDB.setWaterDrank(stats.getInt(0),0);
             } else if (addToStreak(newDataArray, oldDataArray) && percent==100) {
-                waterDB.setValues(stats.getInt(0),0,stats.getInt(2)+1, stats.getInt(3), currentDateandTime);
+                //Must check special cases
+                waterDB.setStreak(stats.getInt(0),stats.getInt(2)+1);
+                waterDB.setDate(stats.getInt(0),currentDateandTime);
+                waterDB.setWaterDrank(stats.getInt(0),0);
             } else {
                 //We did not hit the goal
-                System.out.println(waterDB.setValues(stats.getInt(0),0,0, stats.getInt(3), currentDateandTime));
+                waterDB.setStreak(stats.getInt(0),0);
+                waterDB.setDate(stats.getInt(0),currentDateandTime);
+                waterDB.setWaterDrank(stats.getInt(0),0);
             }
             waterPercentage.setText("0%");
             EditText waterDrank = (EditText)findViewById(R.id.waterDrank);
@@ -122,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         EditText waterDrank  =(EditText)findViewById(R.id.waterDrank);
         int waterSoFar = Integer.parseInt(waterDrank.getText().toString());
         //Update the database for how much water has been drank
-        waterDB.setValues(stats.getInt(0),waterSoFar,stats.getInt(2), stats.getInt(3), stats.getString(4));
+        waterDB.setWaterDrank(stats.getInt(0),waterSoFar);
         
         int percent = (int)Math.min(100,(waterSoFar/(stats.getInt(3)/2.0))*100);
         if(percent==100){
